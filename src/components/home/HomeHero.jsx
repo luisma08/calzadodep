@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { A11y, Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 //import { peruvianCurrencyFormat } from '../../utils/utils';
@@ -16,20 +16,22 @@ const HomeHero = ({ heroProducts }) => {
       pagination={{ clickable: true }}
       preloadImages={false}
     >
-      {heroProducts.map((element) => {
-        const { image } = element.attributes;
-        return (
           <SwiperSlide
-            key={element.id}
             tag='section'
             className='hero d-flex a-items-center min-h-500'
             style={{
-              backgroundImage: `url(${image.data.attributes.url})`
+              backgroundImage: "url(https://res.cloudinary.com/dqa9xrcf6/image/upload/v1683238989/calzadodep/banner-home-1_a7vhq3.jpg)"
             }}
           >
           </SwiperSlide>
-        );
-      })}
+          <SwiperSlide
+            tag='section'
+            className='hero d-flex a-items-center min-h-500'
+            style={{
+              backgroundImage: "url(https://res.cloudinary.com/dqa9xrcf6/image/upload/v1683238989/calzadodep/Banner-home-2_s9dxyt.jpg)"
+            }}
+          >
+          </SwiperSlide>
     </Swiper>
   );
 };
