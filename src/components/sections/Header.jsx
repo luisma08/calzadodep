@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { BsList, BsXCircle } from "react-icons/bs";
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import logoEAKON from '../../assets/img/logo-eakon.webp';
+import logoEAKON from '../../assets/img/zapatillas.webp';
 import useContact from '../../hooks/useContact';
 import { fetchReadContactData } from '../../redux/thunks/contactThunk';
 import ContainersImage from '../common/containers/ContainersImage';
