@@ -5,9 +5,6 @@ const initialState = {
   loading: false,
   error: {},
   products: [],
-  productsMeta: {},
-  productsPage: 1,
-  productsPageSize: 8,
   product: {},
 };
 
@@ -19,13 +16,7 @@ export const productsSlice = createSlice({
       state.loading = false;
       state.error = {};
       state.products = [];
-      state.productsMeta = {};
-      state.productsPage = 1;
-      state.productsPageSize = 8;
       state.product = {};
-    },
-    incrementProductsPage: (state) => {
-      state.productsPage++;
     }
   },
   extraReducers: (builder) => {
@@ -35,12 +26,7 @@ export const productsSlice = createSlice({
     builder.addCase(fetchReadProducts.fulfilled, (state, action) => {
       state.loading = false;
       state.error = {};
-      if (action.payload.meta.pagination.page === 1) {
-        state.products = action.payload.data;
-      } else {
-        state.products = [...state.products, ...action.payload.data];
-      }
-      state.productsMeta = action.payload.meta;
+      state.products = action.payload.data;
     });
     builder.addCase(fetchReadProducts.rejected, (state, action) => {
       state.loading = false;
@@ -63,6 +49,6 @@ export const productsSlice = createSlice({
   }
 });
 
-export const { resetProducts, incrementProductsPage } = productsSlice.actions;
+export const { resetProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;

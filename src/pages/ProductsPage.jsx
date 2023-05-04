@@ -7,15 +7,15 @@ import { fetchReadProducts } from "../redux/thunks/productsThunk";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
-  const { loading, products, productsPage, productsPageSize } = useProducts();
+  const { loading, products } = useProducts();
 
   useEffect(() => {
-    document.title = '¡Productos! I EAKON';
+    document.title = '¡Productos! Calzado Dep';
   }, []);
-
+  
   useEffect(() => {
-    dispatch(fetchReadProducts({ productsPage, productsPageSize }));
-  }, [productsPage]);
+    dispatch(fetchReadProducts());
+  }, []);
 
   return (
     <ProductsWrapper

@@ -3,11 +3,11 @@ import axiosInstance from "../../configs/axiosInstance";
 
 export const fetchReadProducts = createAsyncThunk(
   'products/fetchReadProducts',
-  async ({ productsPage, productsPageSize }, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const options = {
         method: 'GET',
-        url: `/products?pagination[page]=${productsPage}&pagination[pageSize]=${productsPageSize}&populate=image&sort=id%3Adesc`
+        url: '/productos'
       };
       const { data } = await axiosInstance(options);
       return data;
