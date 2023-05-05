@@ -29,14 +29,14 @@ export const homeSlice = createSlice({
     builder.addCase(fetchReadBestSellersProducts.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchReadBestSellersProducts.fulfilled, (state, { payload }) => {
+    builder.addCase(fetchReadBestSellersProducts.fulfilled, (state, action) => {
       state.loading = false;
       state.error = {};
-      state.bestSellersProducts = payload;
+      state.bestSellersProducts = action.payload.data;
     });
-    builder.addCase(fetchReadBestSellersProducts.rejected, (state, { payload }) => {
+    builder.addCase(fetchReadBestSellersProducts.rejected, (state, action) => {
       state.loading = false;
-      state.error = payload;
+      state.error = action.payload;
       state.bestSellersProducts = [];
     });
   }

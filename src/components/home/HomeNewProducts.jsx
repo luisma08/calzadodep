@@ -39,8 +39,8 @@ const HomeNewProducts = ({ bestSellersProducts }) => {
           }}
         spaceBetween={30}
         >
-        {bestSellersProducts.map((element) => {
-            const { title, slug, image, price } = element.attributes;
+        {bestSellersProducts.map(element => {
+            const { nombre, slug, imagen, precio } = element;
             return (
             <SwiperSlide
                 key={element.id}
@@ -49,17 +49,17 @@ const HomeNewProducts = ({ bestSellersProducts }) => {
             >
                 <Link to={`/productos/${slug}`}>
                   <ContainersImage
-                    src={image.data[0].attributes.formats.thumbnail.url}
-                    alt={title}
+                    src={imagen}
+                    alt={nombre}
                     className="card__header-img card__header-img--products"
                   />
                 </Link>
                 <div className="card__body card__body--products">
-                  <h3 className="card__subtitle card__subtitle--sm">Farmalab</h3>
-                  <Link to={`/productos/${slug}`} className="card__title">{title}</Link>
-                  <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(price)}</h4>
+                  <h3 className="card__subtitle card__subtitle--sm">Calzado Dep</h3>
+                  <Link to={`/productos/${slug}`} className="card__title">{nombre}</Link>
+                  <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(precio)}</h4>
                   <a
-                    href={`https://api.whatsapp.com/send?phone=51949495862&text=Deseo comprar el producto ${title}, marca: farmalab`}
+                    href={`https://api.whatsapp.com/send?phone=51949495862&text=Deseo comprar el producto ${nombre}, marca: Calzado Dep`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="button button--primary"

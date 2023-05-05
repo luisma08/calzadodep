@@ -23,10 +23,10 @@ export const fetchReadBestSellersProducts = createAsyncThunk(
     try {
       const options = {
         method: 'GET',
-        url: `/products?pagination[page]=1&pagination[pageSize]=10&populate=image&sort=id%3Adesc`
+        url: '/productos'
       };
       const { data } = await axiosInstance(options);
-      return data.data ?? [];
+      return data;
     } catch (error) {
       return rejectWithValue(error);
     }
