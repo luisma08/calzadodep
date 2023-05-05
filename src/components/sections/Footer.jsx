@@ -18,7 +18,7 @@ const Footer = () => {
             <Services servicesData={servicesData}/>
             <ContactMeans />
             <div className="container t-align-center">
-                <p>Copyright © Farmacommerce 2023 Todos los derechos reservados</p>
+                <p>Copyright © Calzado Dep 2023 Todos los derechos reservados</p>
             </div>
         </>
      );

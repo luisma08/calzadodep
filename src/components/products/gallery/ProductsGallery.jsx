@@ -16,7 +16,7 @@ const ProductsGallery = ({ products }) => {
       <div className="d-flex f-direction-column gap-lg">
         <ul className="list g-elements g-elements--products-gallery gap-md">
           {products.map(element => {
-            const { id, nombre, precio, imagen } = element;
+            const { id, nombre, precio, imagen, procedencia, stock } = element;
             return (
               <li key={id} className="card card--products">
                 {/* <button
@@ -32,8 +32,12 @@ const ProductsGallery = ({ products }) => {
                   />
                 </Link>
                 <div className="card__body card__body--products">
-                  <h3 className="card__subtitle card__subtitle--sm">Nike</h3>
+                  <h3 className="card__subtitle card__subtitle--sm">Calzado Dep</h3>
                   <Link to={`/productos/${nombre}`} className="card__title">{nombre}</Link>
+                  <div className="f-elements gap-3xs">
+                    <p className="badge">{procedencia}</p>
+                    <p className="badge badge--primary">{stock}</p>
+                  </div>
                   <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(precio)}</h4>
                   <a
                     href={`https://api.whatsapp.com/send?phone=51949495862&text=Deseo comprar el producto ${nombre}, marca: calzadodep`}
