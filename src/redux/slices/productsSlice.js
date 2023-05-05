@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
   error: {},
   products: [],
-  product: {},
+  product: {}
 };
 
 export const productsSlice = createSlice({
@@ -39,12 +39,12 @@ export const productsSlice = createSlice({
     builder.addCase(fetchReadProduct.fulfilled, (state, action) => {
       state.loading = false;
       state.error = {};
-      state.product = action.payload.data[0];
+      state.product = action.payload.data;
     });
     builder.addCase(fetchReadProduct.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
-      state.products = {};
+      state.product = {};
     });
   }
 });

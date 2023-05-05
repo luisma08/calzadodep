@@ -23,9 +23,10 @@ export const fetchReadProduct = createAsyncThunk(
     try {
       const options = {
         method: 'GET',
-        url: `/products?filters[slug][$eq]=${slug}&populate=image`
+        url: `/producto/slug/${slug}`
       };
       const { data } = await axiosInstance(options);
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
