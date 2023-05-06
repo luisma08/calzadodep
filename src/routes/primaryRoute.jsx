@@ -5,7 +5,6 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import ProductsPage from "../pages/ProductsPage";
 import CartPage from "../pages/CartPage";
-import { SignUp } from "../pages/SignUp";
 
 export const primaryRoute = createBrowserRouter([
   {
@@ -35,10 +34,6 @@ export const primaryRoute = createBrowserRouter([
       {
         path: 'carrito',
         element: <CartPage />
-      },
-      {
-        path: 'registro',
-        element: <SignUp />
       }
     ]
   }

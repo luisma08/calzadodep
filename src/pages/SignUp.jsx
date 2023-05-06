@@ -26,7 +26,7 @@ export const SignUp = () => {
     const status = response.status;
     const data = await response.json();
     if (status === 200) {
-      navigate("/pedidos");
+      navigate("/productos");
     } else {
       setAlert({ message: data.message, type: "error", show: true });
     }
