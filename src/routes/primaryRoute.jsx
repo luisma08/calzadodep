@@ -4,6 +4,7 @@ import AboutUsPage from "../pages/AboutUsPage";
 import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import ProductsPage from "../pages/ProductsPage";
+import CartPage from "../pages/CartPage";
 
 export const primaryRoute = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const primaryRoute = createBrowserRouter([
       {
         path: 'nosotros',
         element: <AboutUsPage />
+      },
+      {
+        path: 'carrito',
+        element: <CartPage />
       }
     ]
   }

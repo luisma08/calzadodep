@@ -2,11 +2,21 @@
 import { Link } from "react-router-dom";
 import { peruvianCurrencyFormat } from "../../../utils/utils";
 import ContainersImage from "../../common/containers/ContainersImage";
-import useCart from "../../../hooks/useCart";
+//import useCart from "../../../hooks/useCart"
+//import useProducts from "../../../hooks/useProducts";
+//import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const ProductsGallery = ({ products }) => {
-  const[handleAddProduct] =useCart();
 
+  const [cart, setCart] = useState([]);
+
+  const handleAddProduct = (productId) => {
+    const product = products.find((p) => p.id === productId);
+    setCart([...cart, product]);
+    localStorage.setItem('cart', JSON.stringify([...cart, product]));
+  };
+  
   return (
     products.length > 0 ?
       <div className="d-flex f-direction-column gap-lg">
@@ -37,7 +47,7 @@ const ProductsGallery = ({ products }) => {
                   <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(precio)}</h4>
                   <button
                     className="button button--primary"
-                    onClick={() => handleAddProduct(element.id)}
+                    onClick={() => handleAddProduct(id)}
                   >
                     Agregar al carrito
                   </button>
