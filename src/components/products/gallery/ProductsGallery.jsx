@@ -1,24 +1,11 @@
 //import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-//import useContact from "../../../hooks/useContact";
-import useProducts from "../../../hooks/useProducts";
-//import { incrementProductsPage } from "../../../redux/slices/productsSlice";
 import { peruvianCurrencyFormat } from "../../../utils/utils";
 import ContainersImage from "../../common/containers/ContainersImage";
-//import { fetchReadProductId } from "../../../redux/thunks/productsThunk";
-//import { useEffect } from "react";
-import useLocalStorage from "../../../hooks/useLocalStorage";
-//import { resetProducts } from "../../../redux/slices/productsSlice";
+import useCart from "../../../hooks/useCart";
 
-const ProductsGallery = ({ products }, props) => {
-  //const dispatch = useDispatch()
-
-  //const [products, addProduct] = useLocalStorage();
-
-  const handleAddProduct = () => {
-    const newProduct = {}; // Reemplaza esto con tu lógica para agregar un nuevo producto
-    addProduct(newProduct);
-  };
+const ProductsGallery = ({ products }) => {
+  const[handleAddProduct] =useCart();
 
   return (
     products.length > 0 ?
@@ -50,7 +37,7 @@ const ProductsGallery = ({ products }, props) => {
                   <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(precio)}</h4>
                   <button
                     className="button button--primary"
-                    onClick={handleAddProduct}
+                    onClick={() => handleAddProduct(element.id)}
                   >
                     Agregar al carrito
                   </button>
