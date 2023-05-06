@@ -33,3 +33,20 @@ export const fetchReadProduct = createAsyncThunk(
     }
   }
 );
+
+export const fetchReadProductId = createAsyncThunk(
+  'products/fetchReadProductId',
+  async (id, { rejectWithValue }) => {
+    try {
+      const options = {
+        method: 'GET',
+        url: `/producto/${id}`
+      };
+      const { data } = await axiosInstance(options);
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

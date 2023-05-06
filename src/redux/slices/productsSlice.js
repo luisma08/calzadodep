@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchReadProduct, fetchReadProducts } from "../thunks/productsThunk";
+import { fetchReadProduct, fetchReadProducts, fetchReadProductId } from "../thunks/productsThunk";
 
 const initialState = {
   loading: false,
   error: {},
   products: [],
-  product: {}
+  product: {},
+  productId: {}
 };
 
 export const productsSlice = createSlice({
@@ -17,6 +18,7 @@ export const productsSlice = createSlice({
       state.error = {};
       state.products = [];
       state.product = {};
+      state.productId = {};
     }
   },
   extraReducers: (builder) => {
@@ -45,6 +47,19 @@ export const productsSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
       state.product = {};
+    });
+    builder.addCase(fetchReadProductId.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchReadProductId.fulfilled, (state, action) => {
+      state.loading = false;
+      state.error = {};
+      state.productId = action.payload.data;
+    });
+    builder.addCase(fetchReadProductId.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+      state.productId = {};
     });
   }
 });

@@ -1,15 +1,24 @@
 //import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 //import useContact from "../../../hooks/useContact";
-//import useProducts from "../../../hooks/useProducts";
+import useProducts from "../../../hooks/useProducts";
 //import { incrementProductsPage } from "../../../redux/slices/productsSlice";
 import { peruvianCurrencyFormat } from "../../../utils/utils";
 import ContainersImage from "../../common/containers/ContainersImage";
+//import { fetchReadProductId } from "../../../redux/thunks/productsThunk";
+//import { useEffect } from "react";
+import useLocalStorage from "../../../hooks/useLocalStorage";
+//import { resetProducts } from "../../../redux/slices/productsSlice";
 
-const ProductsGallery = ({ products }) => {
+const ProductsGallery = ({ products }, props) => {
   //const dispatch = useDispatch()
-  //const { contactData } = useContact();
-  //const { productsMeta, productsPage } = useProducts();
+
+  //const [products, addProduct] = useLocalStorage();
+
+  const handleAddProduct = () => {
+    const newProduct = {}; // Reemplaza esto con tu lógica para agregar un nuevo producto
+    addProduct(newProduct);
+  };
 
   return (
     products.length > 0 ?
@@ -39,14 +48,12 @@ const ProductsGallery = ({ products }) => {
                     <p className="badge badge--primary">{stock}</p>
                   </div>
                   <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(precio)}</h4>
-                  <a
-                    href={`https://api.whatsapp.com/send?phone=51949495862&text=Deseo comprar el producto ${nombre}, marca: calzadodep`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
                     className="button button--primary"
+                    onClick={handleAddProduct}
                   >
-                    Comprar por whatsapp
-                  </a>
+                    Agregar al carrito
+                  </button>
                 </div>
               </li>
             );

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import useContact from "../../hooks/useContact";
+//import useContact from "../../hooks/useContact";
 import useProducts from "../../hooks/useProducts";
+//import useLocalStorage from "../../hooks/useLocalStorage";
 import { resetProducts } from "../../redux/slices/productsSlice";
 import { peruvianCurrencyFormat } from "../../utils/utils";
 import ContainersImage from "../common/containers/ContainersImage";
@@ -11,7 +12,8 @@ import LoadersModal from "../common/loaders/LoadersModal";
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const { loading, product } = useProducts();
-  const { contactData } = useContact();
+  //const { contactData } = useContact();
+  //const [products, addProduct] = useLocalStorage();
 
   const { id, nombre, precio, stock, descripcion, imagen, procedencia, slug } = product;
 
@@ -43,14 +45,14 @@ const ProductDetail = () => {
             <h4 className="card__subtitle">Precio</h4>
             <h3 className="card__highlighted card__highlighted--xl">{precio && peruvianCurrencyFormat(precio)}</h3>
             <p className="card__text card__text--sm">STOCK ± {stock || 0} unidades disponibles</p>
-            {/* <button className="button button--outline-primary mt-auto">Agregar a carrito</button> */}
+            <button className="button button--outline-primary mt-auto">Agregar a carrito</button>
             <a
-              href={`https://api.whatsapp.com/send?phone=51949495862&text=Deseo cotizar el producto ${nombre}, marca: Farmalab`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button button--primary mt-auto"
-            >
-              Comprar por Whatsapp
+                href={`https://api.whatsapp.com/send?phone=51949495862&text=Deseo comprar el producto ${nombre}, marca: calzadodep`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button button--primary mt-auto"
+              >
+                Comprar por whatsapp
             </a>
           </div>
         </div>
