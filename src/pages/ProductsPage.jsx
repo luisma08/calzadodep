@@ -21,7 +21,7 @@ const ProductsPage = () => {
     <ProductsWrapper
       loading={loading}
       title="Productos"
-      image="https://res.cloudinary.com/dqa9xrcf6/image/upload/v1676114140/strapi-content/productos/farmacias-1_jih9mh.webp"
+      image="https://img2.rtve.es/i/?w=1600&i=1334950928560.jpg"
     >
       <ProductsGallery products={products} />
     </ProductsWrapper>
