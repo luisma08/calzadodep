@@ -25,11 +25,11 @@ const Services = ({ servicesData }) => {
                     </div>
                     <div className="card card--hero">
                         <div className="f-elements f-direction-column f-elements--center gap-xs t-align-center">
-                            <img width="48" height="48" src="https://footloose.vtexassets.com/assets/vtex.file-manager-graphql/images/a3a7bd71-58d6-42d3-a659-cae1febb4b77___29ca1e6433273ebb02ab8b6909453ecc.png" alt=""
+                            <img width="48" height="48" src="https://footloose.vtexassets.com/assets/vtex.file-manager-graphql/images/83a69fe7-95ca-474f-8290-fb79fad9a109___65a80d83bed79ed2ec10df9a69f59089.png" alt=""
                             style={{backgroundColor:"white", padding: 30, borderRadius:20}} 
                             />
-                            <h3 className="card__title card__title--lg">Revisa tu boleta</h3>
-                            <p className="card__title card__title--sm">Verifica todo lo necesario aquí.</p>
+                            <h3 className="card__title card__title--lg">Seguimiento de pedidos</h3>
+                            <p className="card__title card__title--sm">Fácil y Rápido con tu número de pedido.</p>
                         </div>
                     </div>
                 </div>
