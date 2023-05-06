@@ -35,11 +35,11 @@ const ListsNavLink = ({ className = '', handleClickList = () => { }, handleClick
       </li> */}
       <li>
         <NavLink
-          to="/nosotros"
+          to="/carrito"
           className={({ isActive }) => isActive ? "list__link list__link--active" : "list__link"}
           onClick={handleClickNavLink}
         >
-          Nosotros
+          carrito
         </NavLink>
       </li>
     </ul>

@@ -3,8 +3,17 @@ import { A11y, Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { peruvianCurrencyFormat } from '../../utils/utils';
 import ContainersImage from '../common/containers/ContainersImage';
+import { useState } from 'react';
 
 const HomeNewProducts = ({ bestSellersProducts }) => {
+
+  const [cart, setCart] = useState([]);
+
+  const handleAddProduct = (productId) => {
+    const product = bestSellersProducts.find((p) => p.id === productId);
+    setCart([...cart, product]);
+    localStorage.setItem('cart', JSON.stringify([...cart, product]));
+  };
     
   return (
     <div className='container'>
@@ -58,14 +67,12 @@ const HomeNewProducts = ({ bestSellersProducts }) => {
                   <h3 className="card__subtitle card__subtitle--sm">Calzado Dep</h3>
                   <Link to={`/productos/${slug}`} className="card__title">{nombre}</Link>
                   <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(precio)}</h4>
-                  <a
-                    href={`https://api.whatsapp.com/send?phone=51949495862&text=Deseo comprar el producto ${nombre}, marca: Calzado Dep`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
                     className="button button--primary"
+                    onClick={() => handleAddProduct(element.id)}
                   >
-                    Comprar
-                  </a>
+                    Agregar al carrito
+                  </button>
                 </div>
             </SwiperSlide>
             );

@@ -16,6 +16,7 @@ const CartPage = () => {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
       };
 
+    const totalPrice = cart.reduce((total, product) => total + product.precio, 0);
 
     return (
         <div>
@@ -44,6 +45,10 @@ const CartPage = () => {
                             </td>
                         </tr>
                     ))}
+                    <tr>
+                            <th scope="row">Total</th>
+                            <td className="text-align-center">{totalPrice}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
